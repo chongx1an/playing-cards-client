@@ -1,10 +1,13 @@
 import axios from 'axios';
-import { useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Card from './Card';
 import './Intro.css';
 
 export default function Intro({ setPlayers }) {
 
     const inputRef = useRef()
+    const [message, setMessage] = useState()
+    const [isButtonEnabled, setIsButtonEnabled] = useState(true)
 
     function startGame() {
 
@@ -21,17 +24,33 @@ export default function Intro({ setPlayers }) {
                 setPlayers(playersWithCards)
             })
             .catch(error => {
-                console.log(error)
+                setMessage(error.response.data.errors.player_count)
             })
+    }
+
+    function handleInputChange() {
+        setIsButtonEnabled(inputRef.current.value > 0)
     }
 
     return (
 
-        <div className="flex justify-center align-middle flex-col max-w-screen-md">
-            <label>Number of players</label>
-            <input ref={inputRef} type="number" min="0" defaultValue="4"></input>
+        <div className="flex justify-center flex-col max-w-screen-md">
+
+            <div className="mb-5 flex justify-center spin">
+                <Card card={"SA"}></Card>
+            </div>
+
+            <h1 className="font-bold text-center mb-20 text-4xl">Playing Cards</h1>
+            <label className="text-xs">Number of players</label>
+            <input ref={inputRef} type="number" min="0" defaultValue="4" onKeyPress={(e) => e.key === 'Enter' ? startGame() : null} onChange={handleInputChange}></input>
             <br />
-            <button onClick={startGame}>Start</button>
+            <button disabled={!isButtonEnabled} onClick={startGame}>Start</button>
+            <br />
+            {message && (
+                <div className="rounded bg-red-50 p-2">
+                    <p className="text-xs overflow-visible text-red-500">{message}</p>
+                </div>
+            )}
         </div>
 
     )

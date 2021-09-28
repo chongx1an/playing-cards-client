@@ -36,7 +36,7 @@ export default function Intro({ setPlayers }) {
 
         <div className="flex justify-center flex-col max-w-screen-md">
 
-            <div className="mb-5 flex justify-center spin">
+            <div className="mb-5 flex justify-center">
                 <Card card={"SA"}></Card>
             </div>
 

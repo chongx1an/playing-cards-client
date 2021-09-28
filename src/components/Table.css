@@ -1,0 +1,3 @@
+table {
+    @apply items-center bg-transparent w-full border-collapse;
+}

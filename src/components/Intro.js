@@ -24,7 +24,7 @@ export default function Intro({ setPlayers }) {
                 setPlayers(playersWithCards)
             })
             .catch(error => {
-                setMessage(error.response.data.errors.player_count)
+                setMessage(error.response?.data?.errors?.player_count || "Something went wrong, please try again later.")
             })
     }
 

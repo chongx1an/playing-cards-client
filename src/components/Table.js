@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card'
-import "./Table.css"
+
 
 export default function Table({ players, setPlayers }) {
 
@@ -16,7 +16,7 @@ export default function Table({ players, setPlayers }) {
       <div className="relative flex flex-col min-w-0 break-words bg-white border w-full rounded">
 
         <div className="block w-full overflow-x-auto rounded-t">
-          <table className="items-center bg-transparent w-full border-collapse ">
+          <table>
             <thead>
               <tr>
                 <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border border-t-0 border-l-0 border-r-0 border-b-1 whitespace-nowrap font-semibold text-left">

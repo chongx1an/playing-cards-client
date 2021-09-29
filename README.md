@@ -10,3 +10,6 @@ Input screen:
 
 Output screen:
 <img width="1440" alt="Screenshot 2021-09-29 at 11 03 47 AM" src="https://user-images.githubusercontent.com/40559684/135196333-8a08feed-90b2-446a-b64d-3fff3263226d.png">
+
+# Time used
+Around 2 hours
